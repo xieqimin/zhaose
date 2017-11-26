@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+
+public class tudata {
+    private ArrayList<spot> spotArrayList;
+    private ArrayList<Integer> colorArrayList=new ArrayList<>();
+    private int numb=0;
+    private int maxcolor=1;
+    public void setSpotArrayList(ArrayList<spot> spotArrayList) {
+        this.spotArrayList = spotArrayList;
+    }
+
+    public int oneStep(){
+        spot spot1=spotArrayList.get(numb);
+        int x;
+        for(x =0;x<=maxcolor;x++){
+            int xx=0;
+            for(int ii:spot1.spotnext){
+                if(x==ii){
+                    xx=1;
+                    break;
+                }
+            }
+            if(xx==0)
+                break;
+        }
+        colorArrayList.set(numb,x);
+        return maxcolor*10+1;
+    }
+
+
+}
+class spot{
+    int x;
+    int y;
+    //int color=0;
+    //ArrayList<spot> spotnext=new ArrayList<>();
+    ArrayList<Integer> spotnext=new ArrayList<>();
+    //int n;
+}
